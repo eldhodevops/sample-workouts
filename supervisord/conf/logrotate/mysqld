@@ -1,0 +1,13 @@
+/var/log/mysql/*.log {
+        create 640 mysql mysql
+        notifempty
+	    daily
+	    missingok
+	    rotate 3
+	    compress
+	    copytruncate
+	    postrotate
+ 			/usr/bin/supervisorctl restart rsyslog
+ 		endscript
+     
+ }
